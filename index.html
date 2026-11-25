@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Duck Scanner</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false"
+      renderer="logarithmicDepthBuffer: true;"
+    >
+      <a-marker id="duckMarker" preset="hiro">
+        <a-entity
+          id="duckFactText"
+          text="value: Mallard Duck; color: #FFFFFF; width: 2; align: center;"
+          position="0 0.5 0"
+          look-at="#camera"
+        ></a-entity>
+      </a-marker>
+      <a-entity id="camera" camera></a-entity>
+    </a-scene>
+
+    <script>
+      window.setDuckFact = function(newText) {
+        const textEl = document.querySelector('#duckFactText');
+        textEl.setAttribute('text', 'value', newText);
+        console.log("Fact updated to:", newText);
+      };
+
+      const marker = document.querySelector('#duckMarker');
+      marker.addEventListener('markerFound', () => {
+        console.log('Duck marker detected!');
+      });
+    </script>
+  </body>
+</html>
