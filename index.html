@@ -12,11 +12,23 @@
       vr-mode-ui="enabled: false"
       renderer="logarithmicDepthBuffer: true;"
     >
-      <a-marker id="duckMarker" preset="hiro">
+      <a-marker id="duckMarker" type="pattern" patternUrl="HCI-Coursework\pattern-Mallard © Mark Hamblin.patt">
       <a-entity look-at="#camera">
+        <a-plane 
+          width="5.5" 
+          height="1.5" 
+          color="#000000" 
+          opacity="0.8"
+          position="0 0.5 -0.01">
+        </a-plane>
         <a-entity
           id="duckFactText"
-          text="value: Mallard Duck; color: #00BFFF; width: 5; align: center; font: mozillavr; letterSpacing: 2;"
+          text="value: Mallard Duck; 
+                color: #FFFFFF; 
+                width: 10; 
+                align: center; 
+                font: mozillavr; 
+                letterSpacing: 2;"
           position="0 0.5 0"
           rotation="0 0 0"
         ></a-entity>
